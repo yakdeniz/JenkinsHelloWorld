@@ -8,8 +8,7 @@ pipeline {
 	stages {
         stage('Build') {
             steps {
-		cmake arguments: 'CMakeLists.txt'
-                cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
+		cmakeBuild buildDir: 'build', buildType: 'Debug', cleanBuild: true, generator: 'Unix Makefiles', installation: 'InSearchPath', sourceDir: 'src'
             }
         }
 	}
